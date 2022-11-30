@@ -1,22 +1,19 @@
 from flask import Flask
+from bd import obtener_conexion
 
 app = Flask(__name__)
 
-# Required
-#app.config["MYSQL_USER"] = "root"
-#app.config["MYSQL_PASSWORD"] = "LtQm0b6CfxCZaGzx6aVd"
-#app.config["MYSQL_DB"] = "railway"
-#app.config["MYSQL_CURSORCLASS"] = "DictCursor"
-#app.config["MYSQL_CUSTOM_OPTIONS"] = {"ssl": {"ca": "/path/to/ca-file"}}
-
-#mysql = MySQL(app)
+def obtener_juegos():
+    conexion = obtener_conexion()
+    datos = []
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM login")
+        datos = cursor.fetchall()
+    conexion.close()
+    return datos
 
 @app.route("/")
 def users():
-   # cur = mysql.connection.cursor()
-    #cur.execute("""SELECT * FROM login""")
-    #rv = cur.fetchall()
-    #return str(rv)
     return 'funciona'
 
 if __name__ == '__main__':
