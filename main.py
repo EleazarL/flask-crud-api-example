@@ -12,7 +12,7 @@ def users():
         cursor.execute("SELECT * FROM login")
         datos = cursor.fetchall()
     conexion.close()
-    return datos
+    return 'donne'
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
