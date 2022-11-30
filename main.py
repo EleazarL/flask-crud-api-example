@@ -1,5 +1,5 @@
 from flask import Flask
-from bd import obtener_conexion
+from db import obtener_conexion
 
 app = Flask(__name__)
 
