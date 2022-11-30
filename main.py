@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, json
 from db import obtener_conexion
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ def users():
         cursor.execute("SELECT * FROM login")
         datos = cursor.fetchall()
     conexion.close()
-    return 'donne'
+    return json(datos)
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
