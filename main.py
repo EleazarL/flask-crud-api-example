@@ -1,12 +1,12 @@
 from flask import Flask, json
-import controlador_juegos
+import crud
 
 app = Flask(__name__)
 
 @app.route("/")
 @app.route("/juegos")
 def juegos():
-    juegos = controlador_juegos.obtener_juegos()
+    juegos = crud.obtener_juegos()
     return str(datos)
 
 if __name__ == '__main__':
