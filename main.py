@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def users():
-    def obtener():
     conexion = obtener_conexion()
     datos = []
     with conexion.cursor() as cursor:
